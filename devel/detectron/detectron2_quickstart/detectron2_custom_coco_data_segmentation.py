@@ -36,6 +36,8 @@ print("Json= ",  pathToJson)
 print("Png= ",  pathToPng)
 register_coco_instances("Parenhyma", {},pathToJson, pathToPng) 
 
+TestJpg=str(input_data_dir / "png-testing/Tx030D_Ven-20220314T115944Z-001/Tx030D_Ven")
+register_coco_instances("Parenhyma_Test", {}, TestJpg)
 fruits_nuts_metadata = MetadataCatalog.get("Parenhyma")
 dataset_dicts = DatasetCatalog.get("Parenhyma")
 
@@ -68,7 +70,7 @@ cfg.SOLVER.IMS_PER_BATCH = 2
 cfg.SOLVER.BASE_LR = 0.02
 cfg.SOLVER.MAX_ITER = 300    # 300 iterations seems good enough, but you can certainly train longer
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128   # faster, and good enough for this toy dataset
-cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3  # 3 classes (data, fig, hazelnut)
+cfg.MODEL.ROI_HEADS.NUM_CLASSES = 4 # 4 classes (data, fig, hazelnut)
 
 os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 trainer = DefaultTrainer(cfg)
@@ -78,7 +80,7 @@ trainer.train()
 
 cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_final.pth")
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5   # set the testing threshold for this model
-cfg.DATASETS.TEST = ("fruits_nuts", )
+cfg.DATASETS.TEST = ("TestJpg", )
 predictor = DefaultPredictor(cfg)
 
 
