@@ -1,0 +1,38 @@
+job: 10354220.meta-pbs.metacentrum.cz running on: gita3.cerit-sc.cz
+DATADIR=/storage/plzen1/home/bohdany/data/cocos2d/orig
+ls DATADIR :
+data
+data.zip
+SCRATCHDIR=/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz
+find SCRATCHDIR/data/orig/ :
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/17.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/6.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/15.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/1.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/10.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/13.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/4.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/7.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/8.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/2.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/16.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/11.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/14.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/5.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/12.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/0.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/9.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/images/3.jpg
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data/trainval.json
+/scratch/bohdany/job_10354220.meta-pbs.metacentrum.cz/data/orig/data.zip
+/storage/plzen1/home/bohdany/data/cocos2d/processed/processed/
+/storage/plzen1/home/bohdany/data/cocos2d/processed/processed/1.jpg
+/storage/plzen1/home/bohdany/data/cocos2d/processed/processed/10.jpg
+/storage/plzen1/home/bohdany/data/cocos2d/processed/processed/13.jpg
+
+**********************************************************************************************************
+
+The SCRATCHes have been SUCCESSFULLY cleaned...
