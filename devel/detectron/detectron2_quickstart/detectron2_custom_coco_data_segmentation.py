@@ -30,10 +30,14 @@ logger.debug(f"input_data_dir={input_data_dir}")
 logger.debug(str(Path(input_data_dir).glob("**/*")))
 
 from detectron2.data.datasets import register_coco_instances
-register_coco_instances("fruits_nuts", {}, str(input_data_dir / "data/trainval.json"), str(input_data_dir / "data/images"))
+pathToJson=str(input_data_dir / "coco training/EntireDatasetCoco/EntireCoco.json")
+pathToPng=str(input_data_dir / "png-training/Celek")
+print("Json= ",  pathToJson)
+print("Png= ",  pathToPng)
+register_coco_instances("Parenhyma", {},pathToJson, pathToPng) 
 
-fruits_nuts_metadata = MetadataCatalog.get("fruits_nuts")
-dataset_dicts = DatasetCatalog.get("fruits_nuts")
+fruits_nuts_metadata = MetadataCatalog.get("Parenhyma")
+dataset_dicts = DatasetCatalog.get("Parenhyma")
 
 import random
 
@@ -56,7 +60,7 @@ import os
 
 cfg = get_cfg()
 cfg.merge_from_file(f"/storage/plzen1/home/{logname}/projects/detectron2/configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
-cfg.DATASETS.TRAIN = ("fruits_nuts",)
+cfg.DATASETS.TRAIN = ("Parenhyma",)
 cfg.DATASETS.TEST = ()   # no metrics implemented for this dataset
 cfg.DATALOADER.NUM_WORKERS = 2
 cfg.MODEL.WEIGHTS = "detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl"  # initialize from model zoo
