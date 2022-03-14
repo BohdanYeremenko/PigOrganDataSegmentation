@@ -80,7 +80,7 @@ trainer.train()
 
 cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_final.pth")
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5   # set the testing threshold for this model
-cfg.DATASETS.TEST = ("TestJpg", )
+cfg.DATASETS.TEST = ("Parenhyma_Test", )
 predictor = DefaultPredictor(cfg)
 
 
