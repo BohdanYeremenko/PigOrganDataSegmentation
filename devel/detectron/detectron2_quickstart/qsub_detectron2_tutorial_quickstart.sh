@@ -18,7 +18,7 @@
 # nastaveni domovskeho adresare, v promenne $LOGNAME je ulozeno vase prihlasovaci jmeno
 PROJECTDIR="/storage/plzen1/home/$LOGNAME/projects/PigOrganDataSegmentation/devel/detectron/detectron2_quickstart"
 DATADIR="/storage/plzen1/home/$LOGNAME/data/PigDataset"
-OUTPUTDIR="/storage/plzen1/home/$LOGNAME/data/PigDataset/Results"
+OUTPUTDIR="/storage/plzen1/home/$LOGNAME/data/PigDataset/Results/processed"
 
 
 echo "job: $PBS_JOBID running on: `uname -n`"
@@ -32,7 +32,7 @@ cd $SCRATCHDIR || exit 1
 
 # priprava vstupnich dat (kopirovani dat na vypocetni uzel)
 mkdir -p $SCRATCHDIR/data/orig
-mkdir -p $SCRATCHDIR/data/PigDataset/Results/processed
+mkdir -p $SCRATCHDIR/data/processed
 mkdir -p $OUTPUTDIR
 cp -r $DATADIR/* $SCRATCHDIR/data/orig/
 
