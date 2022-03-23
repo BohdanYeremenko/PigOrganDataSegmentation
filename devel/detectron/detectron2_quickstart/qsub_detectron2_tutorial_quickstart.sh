@@ -32,7 +32,7 @@ cd $SCRATCHDIR || exit 1
 
 # priprava vstupnich dat (kopirovani dat na vypocetni uzel)
 mkdir -p $SCRATCHDIR/data/orig
-mkdir -p $SCRATCHDIR/data/processed
+mkdir -p $SCRATCHDIR/data/PigDataset/Results/processed
 mkdir -p $OUTPUTDIR
 cp -r $DATADIR/* $SCRATCHDIR/data/orig/
 
