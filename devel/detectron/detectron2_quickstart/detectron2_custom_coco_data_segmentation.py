@@ -31,7 +31,7 @@ logger.debug(f"input_data_dir={input_data_dir}")
 logger.debug(str(Path(input_data_dir).glob("**/*")))
 
 from detectron2.data.datasets import register_coco_instances
-pathToJson=str(input_data_dir / "coco training/EntireDatasetCoco/EntireCoco.json")
+pathToJson=str(input_data_dir / "coco_training/EntireDatasetCoco/EntireCoco.json")
 pathToPng=str(input_data_dir / "png-training/Celek")
 print("Json= ",  pathToJson)
 print("Png= ",  pathToPng)
@@ -49,6 +49,7 @@ for d in random.sample(dataset_dicts, 3):
     visualizer = Visualizer(img[:, :, ::-1], metadata=fruits_nuts_metadata, scale=0.5)
     vis = visualizer.draw_dataset_dict(d)
     file_path = outputdir/"vis_train"/ Path(d["file_name"]).name
+    print("file_path = ", file_path)
     logger.debug(d["file_name"])
     file_path.parent.mkdir(parents=True, exist_ok=True)
     logger.debug(file_path)
