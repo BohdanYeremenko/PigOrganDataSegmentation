@@ -22,8 +22,9 @@ logname = os.getenv('LOGNAME', ".")
 from loguru import logger
 
 input_data_dir = Path(scratchdir) / 'data/orig/'
+print("input_data_dir =", input_data_dir)
 outputdir = Path(scratchdir) / 'data/processed/'
-
+print("outputdir =", outputdir)
 logger.debug(f"outputdir={outputdir}")
 logger.debug(f"input_data_dir={input_data_dir}")
 # print all files in input dir recursively to check everything
