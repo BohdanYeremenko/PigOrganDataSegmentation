@@ -44,7 +44,7 @@ dataset_dicts = DatasetCatalog.get("Parenhyma")
 
 import random
 
-for d in random.sample(dataset_dicts, 3):
+for d in dataset_dicts:
     img = cv2.imread(d["file_name"])
     visualizer = Visualizer(img[:, :, ::-1], metadata=fruits_nuts_metadata, scale=0.5)
     vis = visualizer.draw_dataset_dict(d)
