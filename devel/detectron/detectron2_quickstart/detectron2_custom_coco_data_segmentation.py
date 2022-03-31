@@ -31,8 +31,8 @@ logger.debug(f"input_data_dir={input_data_dir}")
 logger.debug(str(Path(input_data_dir).glob("**/*")))
 
 from detectron2.data.datasets import register_coco_instances
-pathToJson=str(input_data_dir / "coco_training/EntireDatasetCoco/EntireCoco.json")
-pathToPng=str(input_data_dir / "png-training/Celek")
+pathToJson=str(input_data_dir / "coco_training/32/annotations/instances_default.json")
+pathToPng=str(input_data_dir / "coco_training/32/images")
 print("Json= ",  pathToJson)
 print("Png= ",  pathToPng)
 register_coco_instances("Parenhyma", {},pathToJson, pathToPng) 
