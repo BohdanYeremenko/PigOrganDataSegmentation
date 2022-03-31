@@ -88,7 +88,7 @@ predictor = DefaultPredictor(cfg)
 
 from detectron2.utils.visualizer import ColorMode
 
-for d in random.sample(dataset_dicts, 3):
+for d in dataset_dicts:
     im = cv2.imread(d["file_name"])
     outputs = predictor(im)
     v = Visualizer(im[:, :, ::-1],
