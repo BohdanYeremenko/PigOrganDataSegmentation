@@ -63,7 +63,7 @@ from detectron2.config import get_cfg
 import os
 
 cfg = get_cfg()
-cfg.merge_from_file(f"/auto/plzen1/home/bohdany/projects/PigOrganDataSegmentation/devel/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
+cfg.merge_from_file(f"/auto/vestec1-elixir/home/bohdany/detectron2/configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
 cfg.DATASETS.TRAIN = ("Parenhyma",)
 cfg.DATASETS.TEST = ()   # no metrics implemented for this dataset
 cfg.DATALOADER.NUM_WORKERS = 2
