@@ -88,7 +88,7 @@ print(" trainer_finished ")
 
 cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_final.pth")
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5   # set the testing threshold for this model
-cfg.DATASETS.TEST = ("Parenhyma_Test", )
+cfg.DATASETS.TEST = ("Parenhyma_Final", )
 print(" test_started ")
 predictor = DefaultPredictor(cfg)
 print(" test_finished ")
