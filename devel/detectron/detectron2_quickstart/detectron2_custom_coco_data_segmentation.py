@@ -31,8 +31,8 @@ logger.debug(f"input_data_dir={input_data_dir}")
 logger.debug(str(Path(input_data_dir).glob("**/*")))
 
 from detectron2.data.datasets import register_coco_instances
-pathToJsonTrain=str(input_data_dir / "coco_training/TrainingCoco1/Training_Coco.json")
-pathToJsonTest=str(input_data_dir / "coco_testing/coco_testing1/Trasting_Coco3.json")
+pathToJsonTrain=str(input_data_dir / "coco_training/TrainingCoco1/Traning_Coco.json")
+pathToJsonTest=str(input_data_dir / "coco_testing/coco_testing1/Testing_Coco3.json")
 pathToPng=str(input_data_dir / "png_full/PNG")
 print("Json= ",  pathToJsonTrain)
 print("Json2= ", pathToJsonTest)
