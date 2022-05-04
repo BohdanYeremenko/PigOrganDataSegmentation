@@ -31,14 +31,15 @@ logger.debug(f"input_data_dir={input_data_dir}")
 logger.debug(str(Path(input_data_dir).glob("**/*")))
 
 from detectron2.data.datasets import register_coco_instances
-pathToJson=str(input_data_dir / "coco_training/32/annotations/instances_default.json")
-pathToPng=str(input_data_dir / "coco_training/32/images")
+pathToJsonTrain=str(input_data_dir / "coco_training/TrainingCoco1/Training_Coco.json")
+pathToJsonTest=str(input_data_dir / "coco_testing/coco_testing1/Trasting_Coco3.json")
+pathToPng=str(input_data_dir / "png_full/PNG")
 print("Json= ",  pathToJson)
 print("Png= ",  pathToPng)
-register_coco_instances("Parenhyma", {},pathToJson, pathToPng) 
+register_coco_instances("Parenhyma", {},pathToJsonTrain, pathToPng) 
 
 TestJpg=str(input_data_dir / "png-testing/Tx030D_Ven-20220314T115944Z-001/Tx030D_Ven")
-register_coco_instances("Parenhyma_Test", {}, pathToJson, pathToPng)
+register_coco_instances("Parenhyma_Test", {}, pathToJsonTest, pathToPng)
 fruits_nuts_metadata = MetadataCatalog.get("Parenhyma")
 dataset_dicts = DatasetCatalog.get("Parenhyma")
 
