@@ -25,8 +25,8 @@ echo "job: $PBS_JOBID running on: `uname -n`"
 
 
 # nastaveni automatickeho vymazani adresare SCRATCH pro pripad chyby pri behu ulohy
-trap 'clean_scratch' TERM EXIT
-
+# trap 'clean_scratch' TERM EXIT  
+# while in real time mod
 # vstup do adresare SCRATCH, nebo v pripade neuspechu ukonceni s chybovou hodnotou rovnou 1
 cd $SCRATCHDIR || exit 1
 
