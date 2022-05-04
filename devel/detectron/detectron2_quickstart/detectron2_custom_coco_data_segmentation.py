@@ -92,6 +92,7 @@ cfg.DATASETS.TEST = ("Parenhyma_Test", )
 print(" test_started ")
 predictor = DefaultPredictor(cfg)
 print(" test_finished ")
+# Ne funguje ta čast
 
 from detectron2.utils.visualizer import ColorMode
 
