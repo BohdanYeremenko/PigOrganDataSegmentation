@@ -77,16 +77,18 @@ cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 20   # faster, and good enough for th
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 9 # 4 classes (data, fig, hazelnut)
 
 os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
+print("trainer_started")
 trainer = DefaultTrainer(cfg)
 trainer.resume_or_load(resume=False)
 trainer.train()
-
+print("trainer_finished")
 
 cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_final.pth")
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5   # set the testing threshold for this model
 cfg.DATASETS.TEST = ("Parenhyma_Test", )
+print("test_started")
 predictor = DefaultPredictor(cfg)
-
+print("test_finished")
 
 from detectron2.utils.visualizer import ColorMode
 
