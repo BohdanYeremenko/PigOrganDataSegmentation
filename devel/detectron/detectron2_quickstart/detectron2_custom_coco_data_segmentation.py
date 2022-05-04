@@ -77,7 +77,7 @@ cfg.SOLVER.IMS_PER_BATCH = 1 #kolik obrazku v 1 okamžik na grafickou kartou
 cfg.SOLVER.BASE_LR = 0.03 # jak intenzivně měnime Váhy při backPropagation.
 cfg.SOLVER.MAX_ITER = 300    # 300 iterations seems good enough, but you can certainly train longer
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 20   # faster, and good enough for this toy dataset
-cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3 # 4 classes (data, fig, hazelnut)
+cfg.MODEL.ROI_HEADS.NUM_CLASSES = 4 # 4 classes (data, fig, hazelnut)
 
 os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 print(" trainer_started ")
