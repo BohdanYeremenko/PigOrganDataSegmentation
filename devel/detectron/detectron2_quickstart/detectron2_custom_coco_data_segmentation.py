@@ -46,7 +46,7 @@ register_coco_instances("Parenhyma_Test", {}, pathToJsonTest, pathToPng)
 register_coco_instances("Parenhyma_Final", {}, pathToJsonFinale, pathToPngFinale)
 fruits_nuts_metadata = MetadataCatalog.get("Parenhyma")
 dataset_dicts = DatasetCatalog.get("Parenhyma")
-
+dataset_dicts2 = DatasetCatalog.get("Parenhyma_Test") #test na konci 
 import random
 
 for d in dataset_dicts:
@@ -77,7 +77,7 @@ cfg.SOLVER.IMS_PER_BATCH = 1 #kolik obrazku v 1 okamžik na grafickou kartou
 cfg.SOLVER.BASE_LR = 0.03 # jak intenzivně měnime Váhy při backPropagation.
 cfg.SOLVER.MAX_ITER = 300    # 300 iterations seems good enough, but you can certainly train longer
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 20   # faster, and good enough for this toy dataset
-cfg.MODEL.ROI_HEADS.NUM_CLASSES = 4 # 4 classes (data, fig, hazelnut)
+cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3 # 4 classes (data, fig, hazelnut)
 
 os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 print(" trainer_started ")
@@ -88,7 +88,7 @@ print(" trainer_finished ")
 
 cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_final.pth")
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5   # set the testing threshold for this model
-cfg.DATASETS.TEST = ("Parenhyma_Final", )
+#cfg.DATASETS.TEST = ("Parenhyma_Test", )
 print(" test_started ")
 predictor = DefaultPredictor(cfg)
 print(" test_finished ")
@@ -96,7 +96,7 @@ print(" test_finished ")
 
 from detectron2.utils.visualizer import ColorMode
 
-for d in dataset_dicts:
+for d in dataset_dicts2:
     im = cv2.imread(d["file_name"])
     outputs = predictor(im)
     v = Visualizer(im[:, :, ::-1],
@@ -106,7 +106,7 @@ for d in dataset_dicts:
     )
     v = v.draw_instance_predictions(outputs["instances"].to("cpu"))
     file_path = outputdir / "vis_predictions" / Path(d["file_name"]).name
-    outputdir.parent.mkdir(parents=True, exist_ok=True)
+    file_path.parent.mkdir(parents=True, exist_ok=True)
     cv2.imwrite(str(file_path), v.get_image()[:, :, ::-1])
     # cv2_imshow(v.get_image()[:, :, ::-1])
 
