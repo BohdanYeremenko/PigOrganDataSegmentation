@@ -18,7 +18,7 @@
 # nastaveni domovskeho adresare, v promenne $LOGNAME je ulozeno vase prihlasovaci jmeno
 PROJECTDIR="/storage/plzen1/home/$LOGNAME/projects/PigOrganDataSegmentation/devel/detectron/detectron2_quickstart"
 DATADIR="/storage/plzen1/home/$LOGNAME/data/PigDataset"
-OUTPUTDIR="/storage/plzen1/home/$LOGNAME/data/PigDataset/Results"
+OUTPUTDIR="/storage/plzen1/home/$LOGNAME/data/PigDataset/Resultsfinale"
 
 
 echo "job: $PBS_JOBID running on: `uname -n`"
