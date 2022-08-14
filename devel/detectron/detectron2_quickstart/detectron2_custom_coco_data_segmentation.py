@@ -69,8 +69,12 @@ import os
 
 cfg = get_cfg()
 cfg.merge_from_file(f"/auto/vestec1-elixir/home/bohdany/detectron2/configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
+print("Parenhyma")
 cfg.DATASETS.TRAIN = ("Parenhyma",)
+print("Parenhyma-ok")
+print("Parenhyma_Test")
 cfg.DATASETS.TEST = ("Parenhyma_Test",)   # no metrics implemented for this dataset
+print("Parenhyma_Test-ok")
 cfg.DATALOADER.NUM_WORKERS = 2
 cfg.MODEL.WEIGHTS = "detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl"  # initialize from model zoo
 cfg.SOLVER.IMS_PER_BATCH = 1 #kolik obrazku v 1 okamžik na grafickou kartou
