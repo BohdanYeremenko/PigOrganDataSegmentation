@@ -88,7 +88,7 @@ cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 20   # faster, and good enough for th
 print("mODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE ok")
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3 # 4 classes (data, fig, hazelnut)
 print("classes ok")
-cfg.OUTPUT_DIR="/auto/plzen1/home/bohdany/data/PigDataset/Results/processed" # outputdir change
+cfg.OUTPUT_DIR=outputdir 
 print("outputdir ok")
 os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 print(" trainer_started ")
