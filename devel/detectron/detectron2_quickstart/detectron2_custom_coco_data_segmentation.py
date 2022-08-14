@@ -54,7 +54,7 @@ for d in dataset_dicts:
     visualizer = Visualizer(img[:, :, ::-1], metadata=fruits_nuts_metadata, scale=0.5)
     vis = visualizer.draw_dataset_dict(d)
     file_path = outputdir/"vis_train"/ Path(d["file_name"]).name
-    print("file_path = ", file_path)
+    # print("file_path = ", file_path)
     logger.debug(d["file_name"])
     file_path.parent.mkdir(parents=True, exist_ok=True)
     logger.debug(file_path)
