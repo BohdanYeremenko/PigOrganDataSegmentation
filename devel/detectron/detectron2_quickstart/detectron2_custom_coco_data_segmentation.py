@@ -82,7 +82,7 @@ cfg.SOLVER.IMS_PER_BATCH = 2 #kolik obrazku v 1 okamžik na grafickou kartou
 print("kolik obrazu ok")
 cfg.SOLVER.BASE_LR = 0.0001 # jak intenzivně měnime Váhy při backPropagation.
 print("intenyita ok")
-cfg.SOLVER.MAX_ITER = 300    # 300 iterations seems good enough, but you can certainly train longer
+cfg.SOLVER.MAX_ITER = 1000    # 300 iterations seems good enough, but you can certainly train longer
 print("iter ok")
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 20   # faster, and good enough for this toy dataset
 print("mODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE ok")
@@ -121,3 +121,4 @@ for d in dataset_dicts2:
     cv2.imwrite(str(file_path), v.get_image()[:, :, ::-1])
     # cv2_imshow(v.get_image()[:, :, ::-1])
     print("all ok")
+ print("all ok2")
