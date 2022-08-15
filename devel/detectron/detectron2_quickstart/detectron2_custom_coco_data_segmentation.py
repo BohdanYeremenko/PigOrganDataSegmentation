@@ -120,4 +120,4 @@ for d in dataset_dicts2:
     file_path.parent.mkdir(parents=True, exist_ok=True)
     cv2.imwrite(str(file_path), v.get_image()[:, :, ::-1])
     # cv2_imshow(v.get_image()[:, :, ::-1])
-print("all ok")
+    print("all ok")
