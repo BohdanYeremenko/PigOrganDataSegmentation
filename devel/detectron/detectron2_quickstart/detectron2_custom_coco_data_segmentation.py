@@ -47,6 +47,7 @@ register_coco_instances("Parenhyma_Final", {}, pathToJsonFinale, pathToPngFinale
 fruits_nuts_metadata = MetadataCatalog.get("Parenhyma")
 dataset_dicts = DatasetCatalog.get("Parenhyma")
 dataset_dicts2 = DatasetCatalog.get("Parenhyma_Test") #test na konci 
+dataset_dicts3 = DatasetCatalog.get("Parenhyma_Final")
 import random
 
 for d in dataset_dicts:
@@ -119,6 +120,8 @@ for d in dataset_dicts2:
     file_path = outputdir / "vis_predictions" / Path(d["file_name"]).name
     file_path.parent.mkdir(parents=True, exist_ok=True)
     cv2.imwrite(str(file_path), v.get_image()[:, :, ::-1])
+    file_path2= outputdir / "vis_predictions_mask" / Path(d["file_name"]).name
+    cv2.imwrite(str(file_path2), outputs()[:, :, ::-1])
     # cv2_imshow(v.get_image()[:, :, ::-1])
     print("all ok")
  
