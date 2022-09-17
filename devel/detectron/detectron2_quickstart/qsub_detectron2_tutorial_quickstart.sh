@@ -74,3 +74,4 @@ python  $PROJECTDIR/detectron2_custom_coco_data_segmentation.py > results.txt
 cp results.txt $OUTPUTDIR || export CLEAN_SCRATCH=false
 cp -r $SCRATCHDIR/data/processed/* $OUTPUTDIR/processed || export CLEAN_SCRATCH=false
 find $OUTPUTDIR/processed/
+#TRY
