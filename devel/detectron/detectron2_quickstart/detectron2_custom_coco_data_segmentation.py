@@ -123,8 +123,13 @@ for d in dataset_dicts2:
     file_path.parent.mkdir(parents=True, exist_ok=True)
     cv2.imwrite(str(file_path), v.get_image()[:, :, ::-1])
     file_path2= outputdir / "vis_predictions_mask" / Path(d["file_name"]).name
+    y=v2[1, :, :]*255
     print('v2', v2)
-    cv2.imwrite(str(file_path2), v2)
+    print(type(y))
+    print(y.shape)
+    print(y)
+    data2 = Image.fromarray(y.astype(np.uint8))
+    plt.imsave(str(file_path2), data2)
     #cv2.imwrite(str(file_path2), v2[2, :, :]*255)
     #cv2.imwrite(str(file_path2), v2[3, :, :]*255)
     # cv2_imshow(v.g[:, :, ::-1])
