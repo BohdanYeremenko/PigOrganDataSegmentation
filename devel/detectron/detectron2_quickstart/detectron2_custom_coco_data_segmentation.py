@@ -134,5 +134,6 @@ for d in dataset_dicts2:
     #cv2.imwrite(str(file_path2), v2[2, :, :]*255)
     #cv2.imwrite(str(file_path2), v2[3, :, :]*255)
     # cv2_imshow(v.g[:, :, ::-1])
-    print("all ok")
+    
+    #print("all ok")
  
