@@ -126,12 +126,13 @@ for d in dataset_dicts2:
     file_path2= outputdir / "vis_predictions_mask" / Path(d["file_name"]).name
     print('v2', v2)
     print(type(v2))
-    y=v2[:, :, :]*255
-    
+    #y=v2[:, :, :]*255
+    y=v2[:, :, :]
     print(type(y))
     print(y.shape)
     print(y)
-    data2 = Image.fromarray(y.astype(np.uint8))
+    #data2 = Image.fromarray(y.astype(np.uint8))
+    data2 = Image.fromarray(y)
     plt.imsave(str(file_path2), data2)
     #cv2.imwrite(str(file_path2), v2[2, :, :]*255)
     #cv2.imwrite(str(file_path2), v2[3, :, :]*255)
