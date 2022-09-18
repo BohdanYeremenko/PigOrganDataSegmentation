@@ -136,12 +136,15 @@ for d in dataset_dicts2:
     print(v5.shape)
     print(v5.size)
     print(v5)
+    a=0
     for i in v5:
         if i==1:
+            
             v6 = outputs["instances"].pred_masks.to("cpu").numpy()
-            y=v6[i, :, :]*255
+            y=v6[a, :, :]*255
+            a=a+1
             data2 = Image.fromarray(y.astype(np.uint8))
-            file_path2= outputdir / "vis_predictions_mask" / Path(d["file_name"]) / i.name
+            file_path2= outputdir / "vis_predictions_mask" / Path(d["file_name"]) /"object_1"/i.name
             plt.imsave(str(file_path2), data2)
     #cv2.imwrite(str(file_path2), v2[2, :, :]*255)
     #cv2.imwrite(str(file_path2), v2[3, :, :]*255)
