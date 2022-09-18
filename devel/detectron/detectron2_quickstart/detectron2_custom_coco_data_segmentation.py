@@ -120,13 +120,23 @@ for d in dataset_dicts2:
     v = v.draw_instance_predictions(outputs["instances"].to("cpu"))
     print('v', v)
     print(type(v))
-    v2 = outputs["instances"].pred_masks.to("cpu").numpy()
+    #v2 = outputs["instances"].pred_masks.to("cpu").numpy()
+    v2 = outputs["instances"]
+    v3 = outputs["instances"].pred_masks
+    v4 = outputs["instances"].pred_masks.to("cpu")
+    v5 = outputs["instances"].pred_masks.to("cpu").numpy()
     file_path = outputdir / "vis_predictions" / Path(d["file_name"]).name
     file_path.parent.mkdir(parents=True, exist_ok=True)
     cv2.imwrite(str(file_path), v.get_image()[:, :, ::-1])
     file_path2= outputdir / "vis_predictions_mask" / Path(d["file_name"]).name
     print('v2', v2)
     print(type(v2))
+    print('v3', v3)
+    print(type(v3))
+    print('v4', v4)
+    print(type(v4))
+    print('v5', v5)
+    print(type(v5))
     #y=v2[:, :, :]*255
     y=v2[:, :, :]
     print(type(y))
