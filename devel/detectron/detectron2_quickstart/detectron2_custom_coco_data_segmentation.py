@@ -118,7 +118,8 @@ for d in dataset_dicts2:
                    instance_mode=ColorMode.IMAGE_BW   # remove the colors of unsegmented pixels
     )
     v = v.draw_instance_predictions(outputs["instances"].to("cpu"))
-    
+    print('v', v)
+    print(type(v))
     v2 = outputs["instances"].pred_masks.to("cpu").numpy()
     file_path = outputdir / "vis_predictions" / Path(d["file_name"]).name
     file_path.parent.mkdir(parents=True, exist_ok=True)
