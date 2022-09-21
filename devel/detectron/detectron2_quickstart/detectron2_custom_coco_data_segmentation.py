@@ -145,7 +145,8 @@ for d in dataset_dicts2:
             
             data2 = Image.fromarray(y.astype(np.uint8))
             index=str(i)
-            file_path2= outputdir / "vis_predictions_mask" /"object_"index"_"Path(d["file_name"]).name
+            #file_path2= outputdir / "vis_predictions_mask" /"object_"index"_"Path(d["file_name"]).name
+            file_path2= outputdir / "vis_predictions_mask" /Path(d["file_name"]).name
             plt.imsave(str(file_path2), data2)
         a=a+1
     #cv2.imwrite(str(file_path2), v2[2, :, :]*255)
