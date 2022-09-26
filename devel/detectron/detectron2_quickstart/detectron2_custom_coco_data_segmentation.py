@@ -136,19 +136,36 @@ for d in dataset_dicts2:
     print(v5.shape)
     print(v5.size)
     print(v5)
-    a=0
+    maskPos=0
+    masky={}
+    
     for i in v5:
         if i==1:
             
             v6 = outputs["instances"].pred_masks.to("cpu").numpy()
-            y=v6[a, :, :]*255
+            Maska_org=v6[maskPos, :, :]
             
-            data2 = Image.fromarray(y.astype(np.uint8))
-            index=str(i)
+            if i in masky:
+                masky[i]=masky[i]+Maska_org
+            else: 
+                masky[i]=Maska_org
+     
+            #data2 = Image.fromarray(Maska.astype(np.uint8))
+            #index=str(i)
+        
             #file_path2= outputdir / "vis_predictions_mask" /"object_"index"_"Path(d["file_name"]).name
-            file_path2= outputdir / "vis_predictions_mask" /Path(d["file_name"]).name
-            plt.imsave(str(file_path2), data2)
-        a=a+1
+            #file_path2= outputdir / "vis_predictions_mask"/Path(d["file_name"]).name
+            #plt.imsave(str(file_path2), data2)
+        maskPos=maskPos+1
+    for nlabel in masky:
+        image=(masky[nlabel]>0).astype(np.uint8))*255
+        
+        data2 = Image.fromarray(image.astype(np.uint8))
+     
+        
+        file_path2= outputdir / "vis_predictions_mask"/str(nlabel)/Path(d["file_name"]).name
+        file_path2.parent.mkdir(parents=True, exist_ok=True)
+        plt.imsave(str(file_path2), data2)
     #cv2.imwrite(str(file_path2), v2[2, :, :]*255)
     #cv2.imwrite(str(file_path2), v2[3, :, :]*255)
     # cv2_imshow(v.g[:, :, ::-1])
