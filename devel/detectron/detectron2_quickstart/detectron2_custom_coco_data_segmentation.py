@@ -160,13 +160,13 @@ for d in dataset_dicts2:
     for nlabel in masky:
         image=(masky[nlabel]>0).astype(np.uint8))*255
         
-        data2 = Image.fromarray(image.astype(np.uint8))
+        #data2 = Image.fromarray(image.astype(np.uint8))
      
         
         file_path2= outputdir / "vis_predictions_mask"/str(nlabel)/Path(d["file_name"]).name
         file_path2.parent.mkdir(parents=True, exist_ok=True)
-        plt.imsave(str(file_path2), data2)
-    #cv2.imwrite(str(file_path2), v2[2, :, :]*255)
+        #plt.imsave(str(file_path2), data2)
+        cv2.imwrite(str(file_path2), image)
     #cv2.imwrite(str(file_path2), v2[3, :, :]*255)
     # cv2_imshow(v.g[:, :, ::-1])
     
