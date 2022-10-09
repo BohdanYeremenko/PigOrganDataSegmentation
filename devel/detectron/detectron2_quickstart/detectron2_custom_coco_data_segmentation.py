@@ -158,7 +158,7 @@ for d in dataset_dicts2:
             #plt.imsave(str(file_path2), data2)
         maskPos=maskPos+1
     for nlabel in masky:
-        image=(masky[nlabel]>0).astype(np.uint8))*255
+        image=((masky[nlabel]>0).astype(np.uint8))*255
         
         #data2 = Image.fromarray(image.astype(np.uint8))
      
