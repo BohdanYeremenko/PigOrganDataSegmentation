@@ -109,7 +109,7 @@ print(" test_finished ")
 
 from detectron2.utils.visualizer import ColorMode
 
-for d in dataset_dicts2:
+for d in dataset_dicts3:
     im = cv2.imread(d["file_name"])
     outputs = predictor(im)
     v = Visualizer(im[:, :, ::-1],
