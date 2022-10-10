@@ -163,7 +163,7 @@ for d in dataset_dicts2:
         #data2 = Image.fromarray(image.astype(np.uint8))
      
         
-        file_path2= outputdir / "vis_predictions_mask"/str(nlabel)/Path(d["file_name"]).name
+        file_path2= outputdir / "vis_predictions_mask"/str(nlabel)/Path(d["file_name"]).with_suffix(".png").name
         file_path2.parent.mkdir(parents=True, exist_ok=True)
         #plt.imsave(str(file_path2), data2)
         cv2.imwrite(str(file_path2), image)
