@@ -75,17 +75,17 @@ cfg.DATASETS.TRAIN = ("Parenhyma",)
 print("Parenhyma-ok")
 print("Parenhyma_Test")
 cfg.DATASETS.VAL = ("Parenhyma_Test",)
-cfg.DATASETS.TEST = ("Parenhyma_Final",)   # no metrics implemented for this dataset
+cfg.DATASETS.TEST = ("Parenhyma_Test",)   # no metrics implemented for this dataset
 print("Parenhyma_Test-ok")
 cfg.DATALOADER.NUM_WORKERS = 2
 print("NUM_WORKERS ok")
 cfg.MODEL.WEIGHTS = "detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl"  # initialize from model zoo
 print("model weights ok")
-cfg.SOLVER.IMS_PER_BATCH = 1 #kolik obrazku v 1 okamžik na grafickou kartou
+cfg.SOLVER.IMS_PER_BATCH = 5 #kolik obrazku v 1 okamžik na grafickou kartou
 print("kolik obrazu ok")
-cfg.SOLVER.BASE_LR = 0.0001 # jak intenzivně měnime Váhy při backPropagation.
+cfg.SOLVER.BASE_LR = 0.00001 # jak intenzivně měnime Váhy při backPropagation.
 print("intenyita ok")
-cfg.SOLVER.MAX_ITER = 3000    # 300 iterations seems good enough, but you can certainly train longer
+cfg.SOLVER.MAX_ITER = 300    # 300 iterations seems good enough, but you can certainly train longer
 print("iter ok")
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 5   # faster, and good enough for this toy dataset
 print("mODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE ok")
