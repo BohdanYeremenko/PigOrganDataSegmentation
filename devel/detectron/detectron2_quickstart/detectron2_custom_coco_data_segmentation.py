@@ -89,7 +89,7 @@ cfg.SOLVER.MAX_ITER = 300    # 300 iterations seems good enough, but you can cer
 print("iter ok")
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 5   # faster, and good enough for this toy dataset
 print("mODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE ok")
-cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3 # 4 classes (data, fig, hazelnut)
+cfg.MODEL.ROI_HEADS.NUM_CLASSES = 4 # 4 classes (data, fig, hazelnut)
 print("classes ok")
 cfg.OUTPUT_DIR=str(outputdir)
 print("outputdir ok")
