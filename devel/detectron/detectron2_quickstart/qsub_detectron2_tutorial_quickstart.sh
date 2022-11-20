@@ -66,7 +66,7 @@ conda activate /storage/plzen1/home/$LOGNAME/.conda/envs/drawnUI-conda
 export LC_ALL=C.UTF-8
 export LANG=C.UTF-8
 
-
+#TRY help to pull
 # Put your code here
 python  $PROJECTDIR/detectron2_custom_coco_data_segmentation.py > results.txt
 
@@ -75,4 +75,4 @@ python  $PROJECTDIR/detectron2_custom_coco_data_segmentation.py > results.txt
 cp results.txt $OUTPUTDIR || export CLEAN_SCRATCH=false
 cp -r $SCRATCHDIR/data/processed/* $OUTPUTDIR/processed || export CLEAN_SCRATCH=false
 find $OUTPUTDIR/processed/
-#TRY
+
