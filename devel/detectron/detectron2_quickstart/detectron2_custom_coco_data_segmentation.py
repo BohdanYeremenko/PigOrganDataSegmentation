@@ -43,8 +43,8 @@ print("Png= ",  pathToPng)
 register_coco_instances("Parenhyma", {},pathToJsonTrain, pathToPng) 
 
 TestJpg=str(input_data_dir / "png-testing/Tx030D_Ven-20220314T115944Z-001/Tx030D_Ven")
-register_coco_instances("Parenhyma_Test", {}, pathToJsonTest, pathToPng)
-register_coco_instances("Parenhyma_Final", {}, pathToJsonFinale, pathToPngFinale)
+register_coco_instances("Parenhyma_Test", {}, pathToJsonTrain, pathToPng) # change 1 ( all are from training dataset)
+register_coco_instances("Parenhyma_Final", {}, pathToJsonTrain, pathToPngFinale) # change 2 ( all are from training dataset)
 fruits_nuts_metadata = MetadataCatalog.get("Parenhyma")
 dataset_dicts = DatasetCatalog.get("Parenhyma")
 dataset_dicts2 = DatasetCatalog.get("Parenhyma_Test") #test na konci 
