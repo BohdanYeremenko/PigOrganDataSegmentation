@@ -74,8 +74,8 @@ print("Parenhyma")
 cfg.DATASETS.TRAIN = ("Parenhyma",)
 print("Parenhyma-ok")
 print("Parenhyma_Test")
-cfg.DATASETS.VAL = ("Parenhyma_Test",)
-cfg.DATASETS.TEST = ("Parenhyma_Test",)   # no metrics implemented for this dataset
+cfg.DATASETS.VAL = ("Parenhyma",)
+cfg.DATASETS.TEST = ("Parenhyma",)   # no metrics implemented for this dataset
 print("Parenhyma_Test-ok")
 cfg.DATALOADER.NUM_WORKERS = 2
 print("NUM_WORKERS ok")
