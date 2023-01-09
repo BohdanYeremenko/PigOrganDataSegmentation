@@ -43,12 +43,12 @@ print("Png= ",  pathToPng)
 register_coco_instances("Parenhyma", {},pathToJsonTrain, pathToPng) 
 
 TestJpg=str(input_data_dir / "png-testing/Tx030D_Ven-20220314T115944Z-001/Tx030D_Ven")
-register_coco_instances("Parenhyma_Test", {}, pathToJsonTrain, pathToPng) # change 1 ( all are from training dataset)
-register_coco_instances("Parenhyma_Final", {}, pathToJsonTrain, pathToPngFinale) # change 2 ( all are from training dataset)
+#register_coco_instances("Parenhyma_Test", {}, pathToJsonTrain, pathToPng) # change 1 ( all are from training dataset)
+#register_coco_instances("Parenhyma_Final", {}, pathToJsonTrain, pathToPngFinale) # change 2 ( all are from training dataset)
 fruits_nuts_metadata = MetadataCatalog.get("Parenhyma")
 dataset_dicts = DatasetCatalog.get("Parenhyma")
-dataset_dicts2 = DatasetCatalog.get("Parenhyma_Test") #test na konci 
-dataset_dicts3 = DatasetCatalog.get("Parenhyma_Final")
+#dataset_dicts2 = DatasetCatalog.get("Parenhyma_Test") #test na konci 
+#dataset_dicts3 = DatasetCatalog.get("Parenhyma_Final")
 import random
 
 for d in dataset_dicts:
@@ -81,7 +81,7 @@ cfg.DATALOADER.NUM_WORKERS = 2
 print("NUM_WORKERS ok")
 cfg.MODEL.WEIGHTS = "detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl"  # initialize from model zoo
 print("model weights ok")
-cfg.SOLVER.IMS_PER_BATCH = 5 #kolik obrazku v 1 okamžik na grafickou kartou
+cfg.SOLVER.IMS_PER_BATCH = 10 #kolik obrazku v 1 okamžik na grafickou kartou
 print("kolik obrazu ok")
 cfg.SOLVER.BASE_LR = 0.00001 # jak intenzivně měnime Váhy při backPropagation.
 print("intenyita ok")
