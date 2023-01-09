@@ -36,15 +36,15 @@ pathToJsonTrain=str(input_data_dir / "coco_training/TrainingCoco1/Traning_Coco.j
 pathToJsonTest=str(input_data_dir / "coco_testing/coco_testing1/Testing_Coco3.json")
 pathToJsonFinale=str(input_data_dir / "coco_training/26/annotations/instances_default.json")
 pathToPngFinale=(input_data_dir / "png-training/Tx026/Tx026D_Ven")
-pathToPng=str(input_data_dir / "png_full/Png3in1")
+pathToPng=str(input_data_dir / "png_full/PNG2")
 print("Json= ",  pathToJsonTrain)
 print("Json2= ", pathToJsonTest)
 print("Png= ",  pathToPng)
 register_coco_instances("Parenhyma", {},pathToJsonTrain, pathToPng) 
 
 TestJpg=str(input_data_dir / "png-testing/Tx030D_Ven-20220314T115944Z-001/Tx030D_Ven")
-register_coco_instances("Parenhyma_Test", {}, pathToJsonTrain, pathToPng) # change 1 ( all are from training dataset)
-register_coco_instances("Parenhyma_Final", {}, pathToJsonTrain, pathToPngFinale) # change 2 ( all are from training dataset)
+register_coco_instances("Parenhyma_Test", {}, pathToJsonTest, pathToPng) # change 1 ( all are from training dataset)
+register_coco_instances("Parenhyma_Final", {}, pathToJsonTest, pathToPngFinale) # change 2 ( all are from training dataset)
 fruits_nuts_metadata = MetadataCatalog.get("Parenhyma")
 dataset_dicts = DatasetCatalog.get("Parenhyma")
 dataset_dicts2 = DatasetCatalog.get("Parenhyma_Test") #test na konci 
