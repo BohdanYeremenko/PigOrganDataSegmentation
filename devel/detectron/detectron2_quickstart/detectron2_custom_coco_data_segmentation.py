@@ -110,6 +110,8 @@ print(" test_finished ")
 from detectron2.utils.visualizer import ColorMode
 
 for d in dataset_dicts: #change training and testing on the same data
+    print(d["file_name"])
+    print(Path(d["file_name"]).exists())
     im = cv2.imread(d["file_name"])
     outputs = predictor(im)
     v = Visualizer(im[:, :, ::-1],
