@@ -43,8 +43,8 @@ print("Png= ",  pathToPng)
 register_coco_instances("Parenhyma", {},pathToJsonTrain, pathToPng) 
 
 TestJpg=str(input_data_dir / "png-testing/Tx030D_Ven-20220314T115944Z-001/Tx030D_Ven")
-register_coco_instances("Parenhyma_Test", {}, pathToJsonTest, pathToPng) # change 1 ( all are from training dataset)
-register_coco_instances("Parenhyma_Final", {}, pathToJsonTest, pathToPngFinale) # change 2 ( all are from training dataset)
+register_coco_instances("Parenhyma_Test", {}, pathToJsonTest, pathToPng)
+register_coco_instances("Parenhyma_Final", {}, pathToJsonFinale, pathToPngFinale)
 fruits_nuts_metadata = MetadataCatalog.get("Parenhyma")
 dataset_dicts = DatasetCatalog.get("Parenhyma")
 dataset_dicts2 = DatasetCatalog.get("Parenhyma_Test") #test na konci 
@@ -80,15 +80,15 @@ cfg.DATALOADER.NUM_WORKERS = 2
 print("NUM_WORKERS ok")
 cfg.MODEL.WEIGHTS = "detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl"  # initialize from model zoo
 print("model weights ok")
-cfg.SOLVER.IMS_PER_BATCH = 10 #kolik obrazku v 1 okamžik na grafickou kartou
+cfg.SOLVER.IMS_PER_BATCH = 2 #kolik obrazku v 1 okamžik na grafickou kartou
 print("kolik obrazu ok")
-cfg.SOLVER.BASE_LR = 0.00001 # jak intenzivně měnime Váhy při backPropagation.
+cfg.SOLVER.BASE_LR = 0.00005 # jak intenzivně měnime Váhy při backPropagation.
 print("intenyita ok")
-cfg.SOLVER.MAX_ITER = 1500    # 300 iterations seems good enough, but you can certainly train longer
+cfg.SOLVER.MAX_ITER = 5000    # 300 iterations seems good enough, but you can certainly train longer
 print("iter ok")
-cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 1   # faster, and good enough for this toy dataset изм
+cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 5   # faster, and good enough for this toy dataset
 print("mODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE ok")
-cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3 # 4 classes (data, fig, hazelnut) изм
+cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3 # 4 classes (data, fig, hazelnut)
 print("classes ok")
 cfg.OUTPUT_DIR=str(outputdir)
 print("outputdir ok")
@@ -101,7 +101,7 @@ print(" trainer_finished ")
 
 cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_final.pth")
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5   # set the testing threshold for this model
-cfg.DATASETS.TEST = ("Parenhyma_Test", )
+#cfg.DATASETS.TEST = ("Parenhyma_Test", )
 print(" test_started ")
 predictor = DefaultPredictor(cfg)
 print(" test_finished ")
@@ -109,9 +109,7 @@ print(" test_finished ")
 
 from detectron2.utils.visualizer import ColorMode
 
-for d in dataset_dicts2: #change training and testing on the same data
-    print(d["file_name"])
-    print(Path(d["file_name"]).exists())
+for d in dataset_dicts2:
     im = cv2.imread(d["file_name"])
     outputs = predictor(im)
     v = Visualizer(im[:, :, ::-1],
@@ -165,12 +163,11 @@ for d in dataset_dicts2: #change training and testing on the same data
         #data2 = Image.fromarray(image.astype(np.uint8))
      
         
-        file_path2= outputdir / "vis_predictions_mask"/str(nlabel)/Path(d["file_name"]).with_suffix(".png").name
+        file_path2= outputdir / "vis_predictions_mask"/str(nlabel)/Path(d["file_name"]).name
         file_path2.parent.mkdir(parents=True, exist_ok=True)
         #plt.imsave(str(file_path2), data2)
         cv2.imwrite(str(file_path2), image)
     #cv2.imwrite(str(file_path2), v2[3, :, :]*255)
     # cv2_imshow(v.g[:, :, ::-1])
     
-print("all ok")
- #TRY help to pull
+    print("all ok")
