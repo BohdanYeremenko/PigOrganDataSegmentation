@@ -36,7 +36,7 @@ pathToJsonTrain=str(input_data_dir / "coco_training/TrainingCoco1/Traning_Coco.j
 pathToJsonTest=str(input_data_dir / "coco_testing/coco_testing1/Testing_Coco3.json")
 pathToJsonFinale=str(input_data_dir / "coco_training/26/annotations/instances_default.json")
 pathToPngFinale=(input_data_dir / "png-training/Tx026/Tx026D_Ven")
-pathToPng=str(input_data_dir / "png_full/PNG2")
+pathToPng=str(input_data_dir / "png_full/Png3in1")
 print("Json= ",  pathToJsonTrain)
 print("Json2= ", pathToJsonTest)
 print("Png= ",  pathToPng)
@@ -80,9 +80,9 @@ cfg.DATALOADER.NUM_WORKERS = 2
 print("NUM_WORKERS ok")
 cfg.MODEL.WEIGHTS = "detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl"  # initialize from model zoo
 print("model weights ok")
-cfg.SOLVER.IMS_PER_BATCH = 50 #kolik obrazku v 1 okamžik na grafickou kartou
+cfg.SOLVER.IMS_PER_BATCH = 2 #kolik obrazku v 1 okamžik na grafickou kartou
 print("kolik obrazu ok")
-cfg.SOLVER.BASE_LR = 0.0000001 # jak intenzivně měnime Váhy při backPropagation.
+cfg.SOLVER.BASE_LR = 0.00005 # jak intenzivně měnime Váhy při backPropagation.
 print("intenyita ok")
 cfg.SOLVER.MAX_ITER = 5000    # 300 iterations seems good enough, but you can certainly train longer
 print("iter ok")
@@ -112,7 +112,7 @@ from detectron2.utils.visualizer import ColorMode
 for d in dataset_dicts2:
     im = cv2.imread(d["file_name"])
     outputs = predictor(im)
-    print("fileExist", d["file_name"], " ", Path(d["file_name"]).exists())
+    print(d["file_name"], Ptah(d["file_name"]).exists())
     v = Visualizer(im[:, :, ::-1],
                    metadata=fruits_nuts_metadata,
                    scale=0.8,
