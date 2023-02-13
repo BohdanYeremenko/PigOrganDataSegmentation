@@ -80,7 +80,7 @@ cfg.DATALOADER.NUM_WORKERS = 2
 print("NUM_WORKERS ok")
 cfg.MODEL.WEIGHTS = "detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl"  # initialize from model zoo
 print("model weights ok")
-cfg.SOLVER.IMS_PER_BATCH = 2 #kolik obrazku v 1 okamžik na grafickou kartou
+cfg.SOLVER.IMS_PER_BATCH = 50 #kolik obrazku v 1 okamžik na grafickou kartou
 print("kolik obrazu ok")
 cfg.SOLVER.BASE_LR = 0.0000001 # jak intenzivně měnime Váhy při backPropagation.
 print("intenyita ok")
