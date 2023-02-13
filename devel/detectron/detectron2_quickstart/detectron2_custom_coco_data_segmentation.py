@@ -112,6 +112,7 @@ from detectron2.utils.visualizer import ColorMode
 for d in dataset_dicts2:
     im = cv2.imread(d["file_name"])
     outputs = predictor(im)
+    print("fileExist", d["file_name"], " ", Path(d["file_name"]).exists())
     v = Visualizer(im[:, :, ::-1],
                    metadata=fruits_nuts_metadata,
                    scale=0.8,
