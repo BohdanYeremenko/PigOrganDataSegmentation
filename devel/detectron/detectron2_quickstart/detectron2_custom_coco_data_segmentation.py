@@ -36,7 +36,7 @@ pathToJsonTrain=str(input_data_dir / "coco_training/TrainingCoco1/Traning_Coco.j
 pathToJsonTest=str(input_data_dir / "coco_testing/coco_testing1/Testing_Coco3.json")
 pathToJsonFinale=str(input_data_dir / "coco_training/26/annotations/instances_default.json")
 pathToPngFinale=(input_data_dir / "png-training/Tx026/Tx026D_Ven")
-pathToPng=str(input_data_dir / "png_full/Png3in1")
+pathToPng=str(input_data_dir / "png_full/PNG2")
 print("Json= ",  pathToJsonTrain)
 print("Json2= ", pathToJsonTest)
 print("Png= ",  pathToPng)
@@ -112,7 +112,6 @@ from detectron2.utils.visualizer import ColorMode
 for d in dataset_dicts2:
     im = cv2.imread(d["file_name"])
     outputs = predictor(im)
-    print(d["file_name"], Ptah(d["file_name"]).exists())
     v = Visualizer(im[:, :, ::-1],
                    metadata=fruits_nuts_metadata,
                    scale=0.8,
