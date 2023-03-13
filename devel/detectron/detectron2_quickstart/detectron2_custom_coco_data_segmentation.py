@@ -32,10 +32,10 @@ logger.debug(f"input_data_dir={input_data_dir}")
 logger.debug(str(Path(input_data_dir).glob("**/*")))
 
 from detectron2.data.datasets import register_coco_instances
-pathToJsonTrain=str(input_data_dir / "coco_training/TrainingCoco1/Traning_Coco.json")
-pathToJsonTest=str(input_data_dir / "coco_testing/coco_testing1/Testing_Coco3.json")
-pathToJsonFinale=str(input_data_dir / "coco_training/26/annotations/instances_default.json")
-pathToPngFinale=(input_data_dir / "png-training/Tx026/Tx026D_Ven")
+pathToJsonTrain=str(input_data_dir / "Coco_Dataset/Trenovani.json")
+pathToJsonTest=str(input_data_dir / "Coco_Dataset/Validace.json")
+pathToJsonFinale=str(input_data_dir / "Coco_Dataset/Testovani.json")
+#pathToPngFinale=(input_data_dir / "png-training/Tx026/Tx026D_Ven")
 pathToPng=str(input_data_dir / "png_full/PNG2")
 print("Json= ",  pathToJsonTrain)
 print("Json2= ", pathToJsonTest)
@@ -109,7 +109,7 @@ print(" test_finished ")
 
 from detectron2.utils.visualizer import ColorMode
 
-for d in dataset_dicts2:
+for d in dataset_dicts3:
     im = cv2.imread(d["file_name"])
     outputs = predictor(im)
     v = Visualizer(im[:, :, ::-1],
