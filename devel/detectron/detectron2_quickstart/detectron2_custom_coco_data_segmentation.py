@@ -42,7 +42,7 @@ print("Json2= ", pathToJsonTest)
 print("Png= ",  pathToPng)
 register_coco_instances("Parenhyma", {},pathToJsonTrain, pathToPng) 
 
-TestJpg=str(input_data_dir / "png-testing/Tx030D_Ven-20220314T115944Z-001/Tx030D_Ven")
+
 register_coco_instances("Parenhyma_Test", {}, pathToJsonTest, pathToPng)
 register_coco_instances("Parenhyma_Final", {}, pathToJsonFinale, pathToPng)
 fruits_nuts_metadata = MetadataCatalog.get("Parenhyma")
