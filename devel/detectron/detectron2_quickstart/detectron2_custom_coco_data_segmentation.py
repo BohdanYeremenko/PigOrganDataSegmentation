@@ -32,10 +32,10 @@ logger.debug(f"input_data_dir={input_data_dir}")
 logger.debug(str(Path(input_data_dir).glob("**/*")))
 
 from detectron2.data.datasets import register_coco_instances
-pathToJsonTrain=str(input_data_dir / "coco_training/TrainingCoco1/Traning_Coco.json")
-pathToJsonTest=str(input_data_dir / "coco_testing/coco_testing1/Testing_Coco3.json")
-pathToJsonFinale=str(input_data_dir / "coco_training/26/annotations/instances_default.json")
-pathToPngFinale=(input_data_dir / "png-training/Tx026/Tx026D_Ven")
+pathToJsonTrain=str(input_data_dir / "Coco_Dataset/Trenovani.json")
+pathToJsonTest=str(input_data_dir / "Coco_Dataset/Validace.json")
+pathToJsonFinale=str(input_data_dir / "Coco_Dataset/Testovani.json")
+#pathToPngFinale=(input_data_dir / "png-training/Tx026/Tx026D_Ven")
 pathToPng=str(input_data_dir / "png_full/PNG2")
 print("Json= ",  pathToJsonTrain)
 print("Json2= ", pathToJsonTest)
@@ -43,11 +43,11 @@ print("Png= ",  pathToPng)
 register_coco_instances("Parenhyma", {},pathToJsonTrain, pathToPng) 
 
 TestJpg=str(input_data_dir / "png-testing/Tx030D_Ven-20220314T115944Z-001/Tx030D_Ven")
-register_coco_instances("Parenhyma_Test", {}, pathToJsonTest, pathToPng)
-register_coco_instances("Parenhyma_Final", {}, pathToJsonFinale, pathToPngFinale)
+register_coco_instances("Parenhyma_Valid", {}, pathToJsonTest, pathToPng)
+register_coco_instances("Parenhyma_Final", {}, pathToJsonFinale, pathToPng)
 fruits_nuts_metadata = MetadataCatalog.get("Parenhyma")
 dataset_dicts = DatasetCatalog.get("Parenhyma")
-dataset_dicts2 = DatasetCatalog.get("Parenhyma_Test") #test na konci 
+dataset_dicts2 = DatasetCatalog.get("Parenhyma_Valid") #test na konci 
 dataset_dicts3 = DatasetCatalog.get("Parenhyma_Final")
 import random
 
@@ -74,7 +74,7 @@ print("Parenhyma")
 cfg.DATASETS.TRAIN = ("Parenhyma",)
 print("Parenhyma-ok")
 print("Parenhyma_Test")
-cfg.DATASETS.TEST = ("Parenhyma_Test",)   # no metrics implemented for this dataset
+cfg.DATASETS.TEST = ("Parenhyma_Valid",)   # no metrics implemented for this dataset
 print("Parenhyma_Test-ok")
 cfg.DATALOADER.NUM_WORKERS = 2
 print("NUM_WORKERS ok")
@@ -84,7 +84,7 @@ cfg.SOLVER.IMS_PER_BATCH = 10 #kolik obrazku v 1 okamžik na grafickou kartou
 print("kolik obrazu ok")
 cfg.SOLVER.BASE_LR = 0.01 # jak intenzivně měnime Váhy při backPropagation.
 print("intenyita ok")
-cfg.SOLVER.MAX_ITER = 1000    # 300 iterations seems good enough, but you can certainly train longer
+cfg.SOLVER.MAX_ITER = 300    # 300 iterations seems good enough, but you can certainly train longer
 print("iter ok")
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 5   # faster, and good enough for this toy dataset
 print("mODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE ok")
@@ -109,7 +109,7 @@ print(" test_finished ")
 
 from detectron2.utils.visualizer import ColorMode
 
-for d in dataset_dicts2:
+for d in dataset_dicts3:
     im = cv2.imread(d["file_name"])
     outputs = predictor(im)
     v = Visualizer(im[:, :, ::-1],
