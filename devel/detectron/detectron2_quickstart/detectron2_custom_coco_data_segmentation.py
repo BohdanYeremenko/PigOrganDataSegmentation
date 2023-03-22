@@ -82,7 +82,7 @@ cfg.MODEL.WEIGHTS = "detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3
 print("model weights ok")
 cfg.SOLVER.IMS_PER_BATCH = 5 #kolik obrazku v 1 okamžik na grafickou kartou
 print("kolik obrazu ok")
-cfg.SOLVER.BASE_LR = 0.0001 # jak intenzivně měnime Váhy při backPropagation.
+cfg.SOLVER.BASE_LR = 0.00001 # jak intenzivně měnime Váhy při backPropagation.
 print("intenyita ok")
 cfg.SOLVER.MAX_ITER = 300    # 300 iterations seems good enough, but you can certainly train longer
 print("iter ok")
