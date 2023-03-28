@@ -140,7 +140,7 @@ for d in dataset_dicts3:
     masky={}
     
     for i in v5:
-        if i==1:
+        #if i==1:
             
             v6 = outputs["instances"].pred_masks.to("cpu").numpy()
             Maska_org=v6[maskPos, :, :]
@@ -156,7 +156,7 @@ for d in dataset_dicts3:
             #file_path2= outputdir / "vis_predictions_mask" /"object_"index"_"Path(d["file_name"]).name
             #file_path2= outputdir / "vis_predictions_mask"/Path(d["file_name"]).name
             #plt.imsave(str(file_path2), data2)
-        maskPos=maskPos+1
+            maskPos=maskPos+1
     for nlabel in masky:
         image=((masky[nlabel]>0).astype(np.uint8))*255
         
