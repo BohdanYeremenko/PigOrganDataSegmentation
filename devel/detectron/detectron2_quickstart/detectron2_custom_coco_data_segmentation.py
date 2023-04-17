@@ -36,7 +36,7 @@ pathToJsonTrain=str(input_data_dir / "Coco_Dataset/Trenovani.json")
 pathToJsonTest=str(input_data_dir / "Coco_Dataset/Validace.json")
 pathToJsonFinale=str(input_data_dir / "Coco_Dataset/Testovani.json")
 #pathToPngFinale=(input_data_dir / "png-training/Tx026/Tx026D_Ven")
-pathToPng=str(input_data_dir / "png_full/Images3in1")
+pathToPng=str(input_data_dir / "png_full/images")
 print("Json= ",  pathToJsonTrain)
 print("Json2= ", pathToJsonTest)
 print("Png= ",  pathToPng)
@@ -84,7 +84,7 @@ cfg.SOLVER.IMS_PER_BATCH = 10 #kolik obrazku v 1 okamžik na grafickou kartou
 print("kolik obrazu ok")
 cfg.SOLVER.BASE_LR = 0.001 # jak intenzivně měnime Váhy při backPropagation.
 print("intenyita ok")
-cfg.SOLVER.MAX_ITER = 900   # 300 iterations seems good enough, but you can certainly train longer
+cfg.SOLVER.MAX_ITER = 12000   # 300 iterations seems good enough, but you can certainly train longer
 print("iter ok")
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 5   # faster, and good enough for this toy dataset
 print("mODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE ok")
