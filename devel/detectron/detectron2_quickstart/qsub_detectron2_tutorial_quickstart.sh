@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -l select=1:ncpus=1:ngpus=1:mem=30gb:scratch_local=30gb:cl_adan=True
-#PBS -l walltime=5:00:00 -q gpu
+#PBS -l walltime=36:00:00 -q gpu
 
 # modify/delete the above given guidelines according to your job's needs
 # Please note that only one select= argument is allowed at a time.
